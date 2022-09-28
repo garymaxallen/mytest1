@@ -76,13 +76,13 @@
 }
 
 - (void)pressLeft{
-    BOOL applicationCursor = true;
-    [self.usernameText insertText:[NSString stringWithFormat:@"\x1b%c%c", applicationCursor ? 'O' : '[', 'D']];
+    [self.usernameText insertText:@"\x1b[D"];
+//    [self.usernameText insertText:[NSString stringWithFormat:@"\x1b%c%c", applicationCursor ? 'O' : '[', 'D']];
 }
 
 - (void)pressRight{
-    BOOL applicationCursor = true;
-    [self.usernameText insertText:[NSString stringWithFormat:@"\x1b%c%c", applicationCursor ? 'O' : '[', 'C']];
+    [self.usernameText insertText:@"\x1b[C"];
+//    [self.usernameText insertText:[NSString stringWithFormat:@"\x1b%c%c", applicationCursor ? 'O' : '[', 'C']];
 }
 
 //- (void)viewDidLoad {
