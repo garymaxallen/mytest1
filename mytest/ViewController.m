@@ -30,7 +30,7 @@
     self.usernameText.placeholder=@"请输入用户名";
     [self.usernameText setReturnKeyType:UIReturnKeyDone];
     [self.usernameText addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.view addSubview:_usernameText];
+    [self.view addSubview:self.usernameText];
 
     CGRect loginButtonRect=CGRectMake(width*0.1, height*0.5+originY, width*0.8, width*0.09);
     UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeSystem];
@@ -40,6 +40,26 @@
     [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [loginButton setBackgroundColor:[UIColor colorWithRed:0.219608 green:0.45098 blue:0.996078 alpha:1]];
     [self.view addSubview:loginButton];
+    
+    CGRect loginButtonRect2=CGRectMake(0, 0, width*0.8, width*0.09);
+    UIButton *loginButton2=[UIButton buttonWithType:UIButtonTypeSystem];
+    [loginButton2 setFrame:loginButtonRect2];
+    [loginButton2 addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+    [loginButton2 setTitle:@"login" forState:UIControlStateNormal];
+    [loginButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [loginButton2 setBackgroundColor:[UIColor colorWithRed:0.219608 green:0.45098 blue:0.996078 alpha:1]];
+    [self.view addSubview:loginButton2];
+    
+    NSLayoutConstraint *constraint = [NSLayoutConstraint
+                                          constraintWithItem:loginButton
+                                          attribute:NSLayoutAttributeCenterX
+                                          relatedBy:NSLayoutRelationEqual
+                                          toItem:loginButton2
+                                          attribute:NSLayoutAttributeCenterX
+                                          multiplier:1.0
+                                          constant:300];
+
+    [self.view addConstraint:constraint];
     
     UIButton *tabButton = [UIButton buttonWithType: UIButtonTypeSystem];
     [tabButton setFrame: CGRectMake(0.0, 0.0, 40.0, 40.0)];
